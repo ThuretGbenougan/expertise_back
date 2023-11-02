@@ -6,9 +6,9 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="mx-auto max-w-7xl gap-6 py-8 sm:px-6 lg:px-8">
-            <div class="bg-white p-4 shadow dark:bg-gray-800 sm:rounded-lg sm:p-8">
-                <div class="max-w-xl">
+        <div class="mx-auto py-8 sm:px-6 lg:px-8">
+            <div class="mb-5 bg-white p-4 shadow dark:bg-gray-800 sm:rounded-lg sm:p-8">
+                <div class="">
                     @include('bulletin.partials.create')
                 </div>
             </div>
@@ -72,4 +72,15 @@
 
         </div>
     </div>
+
+    @push('scripts')
+        <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
+        <script>
+            ClassicEditor
+                .create(document.querySelector('#editor'))
+                .catch(error => {
+                    console.error(error);
+                });
+        </script>
+    @endpush
 </x-app-layout>

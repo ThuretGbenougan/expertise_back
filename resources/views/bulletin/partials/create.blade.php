@@ -1,41 +1,56 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {{ __('Update Password') }}
+            Ajouter une information
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __('Ensure your account is using a long, random password to stay secure.') }}
-        </p>
     </header>
 
     <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
         @csrf
         @method('put')
 
-        <div>
-            <x-input-label for="current_password" :value="__('Current Password')" />
-            <x-text-input id="current_password" name="current_password" type="password" class="mt-1 block w-full"
-                autocomplete="current-password" />
-            <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
-        </div>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div>
+                <x-input-label for="type" :value="'Choisir un type'" />
+                <x-select name="type" type="password" class="mt-1 block w-full" />
+                <x-input-error :messages="$errors->updatePassword->get('type')" class="mt-2" />
+            </div>
+            <div>
+                <x-input-label for="password" :value="'Titre'" />
+                <x-text-input id="password" name="password" type="password" class="mt-1 block w-full"
+                    autocomplete="new-password" />
+                <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
+            </div>
+            <div>
+                <x-input-label for="remember_me" :value="'A publier ?'" />
 
-        <div>
-            <x-input-label for="password" :value="__('New Password')" />
-            <x-text-input id="password" name="password" type="password" class="mt-1 block w-full"
-                autocomplete="new-password" />
-            <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
-        </div>
-
-        <div>
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-            <x-text-input id="password_confirmation" name="password_confirmation" type="password"
-                class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
+                <input id="remember_me" type="checkbox"
+                    class="mt-1 rounded border-gray-300 p-5 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800"
+                    name="remember">
+            </div>
+            <div class="col-span-2 mb-6">
+                <label class="block">
+                    <span class="text-gray-700">Description</span>
+                    <textarea id="editor" class="mt-1 block w-full rounded-md" name="description" rows="3"></textarea>
+                </label>
+                @error('description')
+                    <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-6">
+                <label class="block">
+                    <span class="text-gray-700">Image (optionnel)</span>
+                    <input type="file" name="file" id="">
+                </label>
+                @error('file')
+                    <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
+            </div>
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button>Ajouter</x-primary-button>
 
         </div>
     </form>
