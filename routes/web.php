@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BulletinController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,8 +30,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::prefix('bulletin')->middleware('auth')->group(function () {
-    Route::get('/', function () {
-        return view('bulletin.index');
-    })->name('bulletin.index');
+    Route::get('/', [BulletinController::class, 'index'])->name('bulletin.index');
+    Route::post('/store', [BulletinController::class, 'store'])->name('bulletin.store');
 });
 require __DIR__ . '/auth.php';
