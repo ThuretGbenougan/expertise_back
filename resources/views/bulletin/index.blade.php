@@ -18,13 +18,15 @@
                 </div>
             </div>
 
-            <div class="bg-white p-4 shadow sm:rounded-lg sm:p-8 sm:px-6 lg:px-8">
+            <div class="bg-white p-4 shadow dark:bg-gray-800 sm:rounded-lg sm:p-8 sm:px-6 lg:px-8">
                 <div class="sm:flex sm:items-center">
                     <div class="sm:flex-auto">
-                        <h1 class="text-base font-semibold leading-6 text-gray-900">Liste d'affichage</h1>
-                        <p class="mt-2 text-sm text-gray-700">Liste des élements ajoutés au panneau d'affichage</p>
+                        <h1 class="text-base font-semibold leading-6 text-gray-900 dark:text-gray-200">Liste d'affichage
+                        </h1>
+                        <p class="mt-2 text-sm text-gray-700 dark:text-gray-200">Liste des élements ajoutés au panneau
+                            d'affichage</p>
                     </div>
-                    <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+                    <div class="mt-4 dark:text-gray-200 sm:ml-16 sm:mt-0 sm:flex-none">
                         {{-- <button type="button"
                             class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Ajouter
                         </button> --}}
@@ -32,36 +34,39 @@
                 </div>
                 <div class="mt-8 flow-root">
                     <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                        <div class="inline-block min-w-full py-2 align-middle dark:text-gray-200 sm:px-6 lg:px-8">
                             <table class="min-w-full divide-y divide-gray-300" id="example">
                                 <thead>
                                     <tr class="divide-x divide-gray-200">
                                         <th scope="col"
-                                            class="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                                            class="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-gray-900 dark:text-gray-200 sm:pl-0">
                                             Type</th>
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-left text-sm font-semibold text-gray-900">Titre et
+                                            class="px-4 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">
+                                            Titre et
                                             Contenu
                                         </th>
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-left text-sm font-semibold text-gray-900">Fichier
+                                            class="px-4 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">
+                                            Fichier
                                         </th>
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-left text-sm font-semibold text-gray-900">Statut
+                                            class="px-4 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">
+                                            Statut
                                         </th>
                                         <th scope="col"
-                                            class="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-gray-900 sm:pr-0">
+                                            class="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-gray-900 dark:text-gray-200 sm:pr-0">
                                             Action</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-gray-200 bg-white">
+                                <tbody class="divide-y divide-gray-200 bg-white dark:bg-gray-800">
                                     @forelse ($bulletins as $bulletin)
                                         <tr class="divide-x divide-gray-200">
                                             <td
-                                                class="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-0">
+                                                class="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 dark:text-gray-200 sm:pl-0">
                                                 {{ $bulletin->category->title }}
                                             </td>
-                                            <td class="whitespace-nowrap p-4 text-sm text-gray-500">
+                                            <td class="whitespace-nowrap p-4 text-sm text-gray-500 dark:text-gray-200">
                                                 {!! Str::limit($bulletin->content) !!} </td>
                                             <td class="whitespace-nowrap p-4 text-sm text-gray-500">
 

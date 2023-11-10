@@ -30,8 +30,10 @@
             </div>
             <div class="col-span-2 mb-6">
                 <label class="block">
-                    <span class="text-gray-700">Contenu de l'information</span>
-                    <textarea id="editor" class="mt-1 block w-full rounded-md" name="content" rows="3"></textarea>
+                    <span class="text-gray-700 dark:text-gray-100">Contenu de l'information</span>
+                    <textarea id="editor"
+                        class="!dark:border-gray-700 !dark:bg-gray-900 mt-1 block w-full rounded-md focus:border-indigo-500 focus:ring-indigo-500 dark:text-gray-300 dark:focus:border-indigo-600 dark:focus:ring-indigo-600"
+                        name="content" rows="3"></textarea>
                 </label>
                 @error('content')
                     <div class="text-sm text-red-600">{{ $message }}</div>
@@ -39,7 +41,7 @@
             </div>
             <div class="mb-6">
                 <label class="block">
-                    <span class="text-gray-700">Image (optionnel)</span>
+                    <span class="text-gray-700 dark:text-gray-200">Image (optionnel)</span>
                     <input type="file" name="file" id="">
                 </label>
                 @error('file')
